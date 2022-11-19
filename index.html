@@ -9,6 +9,11 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<style>
+			@keyframes dropdownmove
+			{
+				from{height:0;opacity: 0;}
+				to{height:200px;opacity: 1;}
+			}
 			.topNav
 			{
 				background-color:white;
@@ -19,7 +24,7 @@
 			{
 				border:none;
 				border-radius: 5px;
-				transition-duration: 1s;
+				transition-duration: 0.4s;
 				background-color:white;
 				white-space:nowrap;
 				overflow: hidden;
@@ -40,8 +45,34 @@
 			{
 				z-index: 3;
 			}
+			.underline-animation
+			{
+				display:flex;
+				position:relative;
+			}
+			.underline-animation::after
+			{
+				height:2px;
+				position:absolute;
+				content:'';
+				width:100%;
+				transform:scaleX(0);
+				bottom:10%;
+				left:0;
+				background-color: black;
+				transform-origin: center;
+				transition: transform 0.4s ease-in-out;
+			}
+			.underline-animation:hover::after
+			{
+				transform: scaleX(100%);
+				transform-origin: center;
+			}
 			.dropdownmenu
 			{
+				animation-name:dropdownmove;
+				animation-duration:0.4s;
+				transition:height 0.4s;
 				max-height: 200px;
 				overflow: auto;
 				width: 100%;
@@ -50,7 +81,7 @@
 			}
 		</style>
 	</head>
-	<body style="">
+	<body>
 		
 		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray;">
 			<div class="container-xxl topNav sticky-top">
@@ -61,7 +92,7 @@
 					<div class="col-lg-8 col-sm-9">
 						<div class="row">
 							<div class="dropdown d-inline-flex col-sm-4 col-xs px-0">
-								<button class="topNavElement d-inline-flex col dropdown-toggle btn" type="button" data-bs-toggle="dropdown">
+								<button class="topNavElement underline-animation d-inline-flex col btn" type="button" data-bs-toggle="dropdown">
 									<span>Place Holder(Song Types)<span>
 								</button>
 								<ul class="dropdown-menu dropdownmenu">
@@ -85,21 +116,25 @@
 									<li><a href="#">Example 3</a></li>
 									<li><a href="#">Example 4</a></li>
 									<li><a href="#">Example 5</a></li>
+									<li><a href="#">Example Real This Time</a></li>
+									<li><a href="#">Example Real This Time3</a></li>
 								</ul>
 							</div>
-							<button class="col-sm-4 col-xs topNavElement d-inline-flex">
+							<button class="col-sm-4 col-xs topNavElement d-inline-flex underline-animation">
 								<span>Place Holder(BXH)</span>
 							</button>
-							<button class="col-sm-4 col-xs topNavElement d-inline-flex">
+							<button class="col-sm-4 col-xs topNavElement d-inline-flex underline-animation">
 								<span>Place Holder(Artists)</span>
 							</button>
 						</div>
 					</div>
 					<div class="col-lg-3 col-sm">
 						<div class="row">
-							<button class="col-sm-8 topNavElement d-inline-flex topNavSearch">
-								<span>Place Holder(Search)</span>
-							</button>
+							<div class="col-sm-8 d-inline-flex px-0">
+								<button class="col topNavElement d-inline-flex topNavSearch">
+									<span>Place Holder(Search)</span>
+								</button>
+							</div>
 							<button class="col-sm-4 topNavElement d-inline-flex LogResB" style="border-radius:20px">
 								<span>Place Holder(S/Reg)</span>
 							</button>
