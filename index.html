@@ -8,6 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script>
 		<style>
 			@keyframes dropdownmove
 			{
@@ -72,12 +73,24 @@
 			{
 				animation-name:dropdownmove;
 				animation-duration:0.4s;
-				transition:height 0.4s;
+				transition:height 0.5s;
 				max-height: 200px;
 				overflow: auto;
 				width: 100%;
 				box-shadow: 0px 1px 2px;
 				background-color: mintcream;
+			}
+			.searchbox
+			{
+				border-radius:20px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			.topNavSearch
+			{
+				height:45px;
+				width:45px;
+				border-radius:50%;
 			}
 		</style>
 	</head>
@@ -89,10 +102,10 @@
 					<div class="col-sm-3 topNavElement col-lg-1 d-inline-flex">
 						<span>Place Holder(Icon)</span>
 					</div>
-					<div class="col-lg-8 col-sm-9">
+					<div class="col-lg-7 col-sm-9">
 						<div class="row">
 							<div class="dropdown d-inline-flex col-sm-4 col-xs px-0">
-								<button class="topNavElement underline-animation d-inline-flex col btn" type="button" data-bs-toggle="dropdown">
+								<button class="topNavElement underline-animation d-inline-flex col btn" data-bs-toggle="dropdown">
 									<span>Place Holder(Song Types)<span>
 								</button>
 								<ul class="dropdown-menu dropdownmenu">
@@ -116,8 +129,10 @@
 									<li><a href="#">Example 3</a></li>
 									<li><a href="#">Example 4</a></li>
 									<li><a href="#">Example 5</a></li>
-									<li><a href="#">Example Real This Time</a></li>
-									<li><a href="#">Example Real This Time3</a></li>
+									<li><hr></li>
+									<li><a href="#">Example For Real This Time</a></li>
+									<li><a href="#">Example For Real This Time 2</a></li>
+									<li><a href="#">Example For Real This Time 3</a></li>
 								</ul>
 							</div>
 							<button class="col-sm-4 col-xs topNavElement d-inline-flex underline-animation">
@@ -128,14 +143,17 @@
 							</button>
 						</div>
 					</div>
-					<div class="col-lg-3 col-sm">
+					<div class="col-lg-4 col-sm">
 						<div class="row">
-							<div class="col-sm-8 d-inline-flex px-0">
-								<button class="col topNavElement d-inline-flex topNavSearch">
-									<span>Place Holder(Search)</span>
-								</button>
+							<div class="col-sm-10 d-inline-flex px-1">
+								<input class="searchbox col" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,..."></input>
+								<div class="col-2 d-inline-flex" style="align-items: center;">
+									<button class="topNavElement d-inline-flex topNavSearch mx-1">
+										<i class="fa-solid fa-magnifying-glass"></i>
+									</button>
+								</div>
 							</div>
-							<button class="col-sm-4 topNavElement d-inline-flex LogResB" style="border-radius:20px">
+							<button class="col-sm-2 topNavElement d-inline-flex LogResB" style="border-radius:20px">
 								<span>Place Holder(S/Reg)</span>
 							</button>
 						</div>
