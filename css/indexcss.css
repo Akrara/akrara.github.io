@@ -62,14 +62,13 @@
     transform: scaleX(100%);
     transform-origin: center;
 }
-.dropdownmenu::before
-{
-    display:block !important;
-    height:0px;
-}
 .dropdownmenu
 {
-    
+    display:inline-flex !important;
+    opacity: 0;
+    height:0px;
+    flex-direction: column;
+    top:50px;
     max-height: 200px;
     overflow: auto;
     width: 100%;

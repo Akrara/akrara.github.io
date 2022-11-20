@@ -21,11 +21,11 @@
 					</div>
 					<div class="col-lg-7 col-sm-9">
 						<div class="row">
-							<div class="dropdown col-sm-4 col-xs d-inline-flex px-0">
+							<div class="dropdown col-sm-4 col-xs d-inline-flex px-0" id="dropdown1">
 								<button class="col topNavElement d-inline-flex underline-animation" data-bs-toggle="dropdown">
 									Place Holder(Songs)
 								</button>
-								<ul class="dropdown-menu dropdownmenu">
+								<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1">
 									<li>Example 1</li>
 									<li><a>Example 2</a></li>
 									<li>Example 3</li>
@@ -74,6 +74,14 @@
 
 	<!--using jquery-->
 	<script>
+		$("#dropdown1").on("show.bs.dropdown",function()
+		{
+			$("#dropdownmenu1").animate({height:"200px",opacity:"1"},400);
+		});
+		$("#dropdown1").on("hide.bs.dropdown",function()
+		{
+			$("#dropdownmenu1").animate({height:"0px",opacity:"0"},400);
+		});
 	</script>
 	</body>
 </html>
