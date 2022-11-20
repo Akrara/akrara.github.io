@@ -3,6 +3,11 @@
     from{height:0;opacity: 0;}
     to{height:200px;opacity: 1;}
 }
+@keyframes dropdownhide
+{
+    from{height:200px;opacity: 1;}
+    to{height:0;opacity: 0;}
+}
 .topNav
 {
     background-color:white;
@@ -57,11 +62,14 @@
     transform: scaleX(100%);
     transform-origin: center;
 }
+.dropdownmenu::before
+{
+    display:block !important;
+    height:0px;
+}
 .dropdownmenu
 {
-    animation-name:dropdownmove;
-    animation-duration:0.4s;
-    transition:height 0.5s;
+    
     max-height: 200px;
     overflow: auto;
     width: 100%;
