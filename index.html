@@ -12,8 +12,20 @@
 		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script> <!--Font awsesome, for ease access to icons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</head>
-	<body>		
-		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray;">
+	<body>
+		<div class="overlay fixed-top container-fluid" style="font-family:fantasy">
+			<div class="signup container-xs">
+				<div class="d-flex col" style="justify-content:center;margin:5px">
+						<h1 style="margin:5px">Log In</h1>
+				</div>
+				<form style="margin:10px" class="col d-flex">
+					<label for="usernamelogin" style="margin-right:10px">Username:</label>
+					<input type="text" placeholder="username" id="usernamelogin">
+				</form>
+			</div>
+		</div>
+
+		<div class="container-fluid" style="box-shadow: 0px 1px 2px dimgray;">
 			<div class="container-xxl topNav sticky-top">
 				<div class="row">
 					<div class="col-sm-3 topNavElement col-lg-1 d-inline-flex underline-animation">
@@ -56,7 +68,7 @@
 					<div class="col-lg-4 col-sm">
 						<div class="row">
 							<div class="col-sm-10 d-inline-flex px-1">
-								<input class="searchbox col" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,..."></input>
+								<input class="searchbox col" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,...">
 								<div class="col-2 d-inline-flex" style="align-items: center;">
 									<button class="topNavElement d-inline-flex topNavSearch mx-1">
 										<i class="fa-solid fa-magnifying-glass"></i>
@@ -64,14 +76,14 @@
 								</div>
 							</div>
 							<button class="col-sm-2 topNavElement d-inline-flex LogResB" style="border-radius:20px">
-								<span>Place Holder(S/Reg)</span>
+								Place Holder(S/Reg)
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		<div class="container-xxl" style="border:2px solid red; height:2000px"></div>
 	<!--using jquery-->
 	<script>
 		$("#dropdown1").on("show.bs.dropdown",function()
