@@ -27,7 +27,7 @@
 			</div>
 		</div>
 
-		<div class="container-fluid" style="box-shadow: 0px 1px 2px dimgray;">
+		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray;">
 			<div class="container-xxl topNav sticky-top">
 				<div class="row">
 					<div class="dropdown col-sm-1 col-lg-1 d-inline-flex px-0" data-bs-toggle="dropdown" id="dropdown0">
@@ -96,9 +96,11 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="container-xxl" style="border:2px solid red; height:2000px"></div> <!--Place holder, for future contents-->
 	<!--using jquery, for now-->
 	<script>
+		
 		$("#dropdown0").on("show.bs.dropdown",function()
 		{
 			$("#dropdownmenu0").animate({height:"200px",opacity:"1"},400);
@@ -126,12 +128,13 @@
 		});
 		$('.signup').click(function(event)
 		{
+			
 			var settings = {
 				"url": "https://api.spotify.com/v1/search?q=smooth&type=track",
 				"method": "GET",
 				"timeout": 0,
 				"headers": {
-				  "Authorization": "Bearer BQD6Hbrvt9V1uTzWFw9pTMJFm21RD3Fhhyx"
+				  "Authorization": "Bearer BQA_ZUOhEi1jfypj4Asln91MBEk74tl5ID6FUHmNWOhZkebOXk_6H2JJN3Cm7LjVfEHdyT0WC75H97Yt9zLVCL5W-Tied0TodxZcisre4Jm1L9n6Qu_JyWLJU2PAbtk5KZotZ5Eu9ssvmanh1j8hU4T453MdsyzNSfWy7ocLhZl24J_9cY1IDTrNRjKdHkpRCB4"
 				},
 			  };
 			  
