@@ -112,7 +112,7 @@
 		{
 			$("#dropdownmenu1").animate({height:"200px",opacity:"1"},400);
 		});
-		
+
 		$("#dropdown1").on("hide.bs.dropdown",function()
 		{
 			$("#dropdownmenu1").animate({height:"0px",opacity:"0"},400);
@@ -126,6 +126,18 @@
 		});
 		$('.signup').click(function(event)
 		{
+			var settings = {
+				"url": "https://api.spotify.com/v1/search?q=smooth&type=track",
+				"method": "GET",
+				"timeout": 0,
+				"headers": {
+				  "Authorization": "Bearer BQD6Hbrvt9V1uTzWFw9pTMJFm21RD3Fhhyx"
+				},
+			  };
+			  
+			  $.ajax(settings).done(function (response) {
+				console.log(response);
+			  });
 			event.stopPropagation();
 		});
 		$('.overlay').click(function()
