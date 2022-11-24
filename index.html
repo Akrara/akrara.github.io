@@ -12,8 +12,8 @@
 		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script> <!--Font awsesome, for ease access to icons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</head>
-	<body>
-		<div class="overlay fixed-top container-fluid" style="font-family:fantasy">
+	<body style="background-color:var(--bg-color);transition: background-color 0.4s ease-in-out">
+		<div class="overlay fixed-top container-fluid">
 			<div class="signup d-flex">
 				<h1 style="margin:5px;margin-left:auto;margin-right:auto">Log In</h1>
 				<label for="usernamelogin" style="margin-left:10%" class="col-4">Username:</label>
@@ -21,24 +21,30 @@
 				<label for="passwordlogin" style="margin-left:10%" class="col-4">Password:</label>
 				<input type="password" placeholder="password" id="passwordlogin" class="col" style="max-height:30px;margin-left:10%;width:80%;border-radius:5px">
 				<div class="d-flex" style="width:100%;justify-content:space-around">
-					<button class="btn btn-primary mx-auto" id="signup" style="margin-top:20px;min-width:30%;">Sign Up</button>
-					<button class="btn btn-primary mx-auto" id="login" style="margin-top:20px;min-width:30%">Log In</button>
+					<button class="btn btn-primary mx-auto" id="signup" style="margin-top:20px;min-width:30%;background-color:var(--button-color);border:none !important;">Sign Up</button>
+					<button class="btn btn-primary mx-auto" id="login" style="margin-top:20px;min-width:30%;background-color:var(--button-color);border:none !important;">Log In</button>
 				</div>
 			</div>
 		</div>
 
-		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray;">
+		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray; background-color:var(--nav-color); transition: background-color 0.4s ease-in-out">
 			<div class="container-xxl topNav sticky-top">
 				<div class="row">
-					<div class="dropdown col-sm-1 col-lg-1 d-inline-flex px-0" data-bs-toggle="dropdown" id="dropdown0">
-						<button class="col topNavElement">
+					<div class=" col-sm-1 col-lg-1 d-inline-flex px-0" >
+						<button class="dropdown col topNavElement" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="dropdown0" aria-expanded="false">
 							<i class="fa-solid fa-bars fa-lg"></i>
 						</button>
-						<ul class="dropdownmenu dropdown-menu" style="width:80%;padding:5px" id="dropdownmenu0">
+						<ul class="dropdownmenu dropdown-menu" style="padding:0px;min-width:2rem" id="dropdownmenu0">
 							<li><a class="dropdown-item" href="#">Home</a></li>
 							<li><a class="dropdown-item" href="#">About</a></li>
 							<li><a class="dropdown-item" href="#">Contact</a></li>
-							<i class="fa-sharp fa-solid fa-sun"></i>
+							<li class="row" style="width:100%;padding-top:5px">
+								<i class="fa-sharp fa-solid fa-moon col-2 fa-xl d-flex" style="margin-left:4px; align-items:center"></i>
+								<span class="switch col-6 d-inline-flex" id="theme-slider" style="padding-right:0px; padding-left:0px; margin-left:18px;cursor:pointer">
+									<input type="checkbox" style="display:none">
+									<span class="slider"></span>
+								</span>
+							</li>
 						</ul>
 					</div>
 					<div class="col-sm-3 topNavElement col-lg-1 d-inline-flex underline-animation">
@@ -46,11 +52,11 @@
 					</div>
 					<div class="col-lg-6 col-sm-8">
 						<div class="row">
-							<div class="dropdown col-sm-4 col-xs d-inline-flex px-0" id="dropdown1" data-bs-toggle="dropdown">
-								<button class="col topNavElement d-inline-flex underline-animation">
+							<div class=" col-sm-4 col-xs d-inline-flex px-0">
+								<button class="col topNavElement d-inline-flex underline-animation dropdown" id="dropdown1" data-bs-toggle="dropdown">
 									Place Holder(Songs)
 								</button>
-								<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1">
+								<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1" style="width:18%">
 									<li>Example 1</li>
 									<li><a>Example 2</a></li>
 									<li>Example 3</li>
@@ -89,7 +95,7 @@
 								</div>
 							</div>
 							<button class="col-sm-2 topNavElement d-inline-flex LogResB" style="border-radius:20px" id="LogResButton">
-								Place Holder(S/Reg)
+								Sign In
 							</button>
 						</div>
 					</div>
@@ -100,7 +106,13 @@
 		<div class="container-xxl" style="border:2px solid red; height:2000px"></div> <!--Place holder, for future contents-->
 	<!--using jquery, for now-->
 	<script>
-		
+		$(document).ready(function(){
+			document.documentElement.setAttribute('data-theme', 'light');
+			if(document.documentElement.getAttribute('data-theme') == 'light')
+			{
+				
+			}
+		});
 		$("#dropdown0").on("show.bs.dropdown",function()
 		{
 			$("#dropdownmenu0").animate({height:"200px",opacity:"1"},400);
@@ -129,7 +141,7 @@
 		$('.signup').click(function(event)
 		{
 			
-			var settings = {
+			/*var settings = {
 				"url": "https://api.spotify.com/v1/search?q=smooth&type=track",
 				"method": "GET",
 				"timeout": 0,
@@ -140,7 +152,7 @@
 			  
 			  $.ajax(settings).done(function (response) {
 				console.log(response);
-			  });
+			  });*/
 			event.stopPropagation();
 		});
 		$('.overlay').click(function()
@@ -152,6 +164,17 @@
 			{
 				overlayvar.css("display","none");
 			});
+		});
+		$('#theme-slider').click(function()
+		{
+			if(document.documentElement.getAttribute('data-theme') == 'light'){
+				document.documentElement.setAttribute('data-theme', 'dark');
+				$('.slider').css({"-webkit-transform":"translateX(200%) translateX(-3px)","transform":"translateX(200%) translateX(-3px)"});
+			}
+			else{
+				document.documentElement.setAttribute('data-theme', 'light');
+				$('.slider').css({"-webkit-transform":"translateX(0%)","transform":"translateX(0%)"});
+			}
 		});
 	</script>
 	</body>

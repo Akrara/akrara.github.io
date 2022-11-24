@@ -12,38 +12,49 @@ html
 {
     scroll-behavior: smooth;
 }
-:root.light-theme
+html[data-theme='light']
 {
     --bg-color:white;
-    --nav-color:whitesmoke;
+    --nav-color:#eeeeee;
     --list-color:mintcream;
     --text-color:black;
     --hover-color:rgb(0, 150, 255);
     --button-color:rgb(0, 150, 255);
+    --button-hover-color:rgb(0, 100, 255);
     --button-text-color:black;
+    --inactive-search-color:rgba(128,128,128,0.5);
+    --active-search-color:rgba(175, 175, 175, 0.2);
+    --border-color:#1000ea;
+    --slide-bg-color:rgba(0, 0, 0, 0.5);
 }
-:root.dark-theme
+html[data-theme='dark']
 {
-    --bg-color:black;
-    --nav-color:rgb(21, 0, 80);
-    --list-color:rgb(63, 0, 113);
+    --bg-color:#00111c;
+    --nav-color:#00263f;
     --text-color:whitesmoke;
-    --hover-color:rgb(97, 0, 148);
-    --button-color:rgb(97, 0, 148);
+    --hover-color:#616e7c;
+    --button-color:#05b5b8;
+    --button-hover-color:#005555;
     --button-text-color:antiquewhite;
+    --inactive-search-color:#243b53;
+    --active-search-color:#40667d;
+    --border-color:#0000ff;
 }
 .topNav
 {
-    background-color:white;
+    transition: background-color 0.4s ease-in-out;
+    background-color:var(--nav-color);
     justify-content: space-evenly;
-    color:black;
+    color:var(--text-color);
 }
 .topNavElement
 {
+    transition: background-color 0.4s ease-in-out;
     border:none;
     border-radius: 5px;
     transition-duration: 0.4s;
-    background-color:white;
+    background-color:var(--nav-color);
+    color:var(--text-color);
     white-space:nowrap;
     overflow: hidden;
     height:50px;
@@ -57,7 +68,7 @@ html
 {
     font-size:23px;
     z-index: 2;
-    background-color: rgb(0, 150, 255);
+    background-color: var(--hover-color);
     box-shadow: 0px 1px, 1px 0px, 0px -1px, -1px 0px;
 }
 .topNavElement:focus
@@ -78,7 +89,7 @@ html
     transform:scaleX(0);
     bottom:10%;
     left:0;
-    background-color: black;
+    background-color: var(--text-color);
     transform-origin: center;
     transition: transform 0.4s ease-in-out;
 }
@@ -89,20 +100,23 @@ html
 }
 .dropdownmenu
 {
-    display:inline-flex !important;
+    min-width:1rem;
+    width:inherit;
+    display:flex !important;
     opacity: 0;
     height:0px;
     flex-direction: column;
     top:50px;
     max-height: 200px;
     overflow: auto;
-    width: 200%;
     box-shadow: 0px 1px 2px;
-    background-color: mintcream;
+    background-color: var(--nav-color)!important;
+    color:var(--text-color)!important;
 }
 .searchbox
 {
-    background-color: rgba(128, 128, 128,0.5);
+    background-color: var(--inactive-search-color);
+    color:var(--text-color);
     border-style: solid;
     border-radius:20px;
     text-overflow: ellipsis;
@@ -111,8 +125,8 @@ html
 }
 .searchbox:focus
 {
-    outline:rgb(65, 65, 255) solid 3px;
-    background-color: rgba(128,128,128,0);
+    outline:var(--border-color) solid 3px;
+    background-color: var(--active-search-color);
 }
 .topNavSearch
 {
@@ -136,12 +150,54 @@ html
 .signup
 {
     border-radius: 10px;
-    color: black;
-    background-color: white;
+    color: var(--text-color);
+    background-color: var(--nav-color);
     height:50%;
     width:20%;
     flex-wrap:wrap;
     align-items: flex-start;
     flex-direction: column;
     padding:5px;
+}
+.switch
+{
+    background-color: var(--bg-color);
+    align-items: center;
+    justify-content: flex-start;
+    min-width:60px;
+    height:22px;
+    border-radius: 34px;
+    box-shadow: 0px 1px 1px, 1px 0px 1px, -1px 0px 1px, 0px -1px 1px ;
+}
+.switch input
+{
+    opacity: 0;
+    width:0;
+    height:0;
+}
+.slider
+{
+    height:20px;
+    width:20px;
+    border-radius: 50%;
+    position: relative;
+    top:0;
+    left:1px;
+    bottom:0;
+    background-color: var(--button-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.btn:hover
+{
+    background-color: var(--button-hover-color)!important;
+}
+.dropdown-item
+{
+    background-color:var(--nav-color)!important;
+    color:var(--text-color)!important;
+}
+.dropdown-item:hover
+{
+    background-color: var(--hover-color)!important;
 }
