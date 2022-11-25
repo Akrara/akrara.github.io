@@ -11,6 +11,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script><!--this line and the above is for bootstrap and popper-->
 		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script> <!--Font awsesome, for ease access to icons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'> <!--Flaticon solid straight pack-->
 	</head>
 	<body style="background-color:var(--bg-color);transition: background-color 0.4s ease-in-out">
 		<div class="overlay fixed-top container-fluid">
@@ -30,75 +31,67 @@
 		<div class="container-fluid sticky-top" style="box-shadow: 0px 1px 2px dimgray; background-color:var(--nav-color); transition: background-color 0.4s ease-in-out">
 			<div class="container-xxl topNav sticky-top">
 				<div class="row">
-					<div class=" col-sm-1 col-lg-1 d-inline-flex px-0" >
+					<div class=" col-sm-1 d-inline-flex px-0" >
 						<button class="dropdown col topNavElement" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="dropdown0" aria-expanded="false">
 							<i class="fa-solid fa-bars fa-lg"></i>
 						</button>
-						<ul class="dropdownmenu dropdown-menu" style="padding:0px;min-width:2rem" id="dropdownmenu0">
+						<ul class="dropdownmenu dropdown-menu" style="padding:0px;min-width: 5rem !important;" id="dropdownmenu0">
 							<li><a class="dropdown-item" href="#">Home</a></li>
 							<li><a class="dropdown-item" href="#">About</a></li>
 							<li><a class="dropdown-item" href="#">Contact</a></li>
-							<li class="row" style="width:100%;padding-top:5px">
-								<i class="fa-sharp fa-solid fa-moon col-2 fa-xl d-flex" style="margin-left:4px; align-items:center"></i>
-								<span class="switch col-6 d-inline-flex" id="theme-slider" style="padding-right:0px; padding-left:0px; margin-left:18px;cursor:pointer">
+							<li class="row" style="width:100%;padding-top:5px; margin:0px 0px; padding-left:1px; padding-right:1px">
+								<svg class="col-3 mx-1 p-0 d-inline-flex" xmlns="http://www.w3.org/2000/svg" id="moon1" data-name="Layer 1" viewBox="0 0 24 24" width="24px" height="24px">
+									<path d="M14,24A12.013,12.013,0,0,1,2,12C1.847,3.044,12.031-2.985,19.791,1.509l1.553.862-1.543.88c-6.7,
+									3.688-6.21,13.87.8,16.906l1.621.731-1.467,1.006A11.921,11.921,0,0,1,14,24Z"/>
+								</svg>
+								<span class="switch col-6 d-inline-flex px-0 mx-1" id="theme-slider" style="align-items:center;margin-left:18px;cursor:pointer">
 									<input type="checkbox" style="display:none">
 									<span class="slider"></span>
 								</span>
 							</li>
 						</ul>
 					</div>
-					<div class="col-sm-3 topNavElement col-lg-1 d-inline-flex underline-animation">
+					<div class="col-sm-1 topNavElement d-inline-flex underline-animation">
 						<span>Place Holder(Icon)</span>
 					</div>
-					<div class="col-lg-6 col-sm-8">
-						<div class="row">
-							<div class=" col-sm-4 col-xs d-inline-flex px-0">
-								<button class="col topNavElement d-inline-flex underline-animation dropdown" id="dropdown1" data-bs-toggle="dropdown">
-									Place Holder(Songs)
-								</button>
-								<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1" style="width:18%">
-									<li>Example 1</li>
-									<li><a>Example 2</a></li>
-									<li>Example 3</li>
-									<li>Example 4</li>
-									<li><hr></li>
-									<li>Example 1</li>
-									<li>Example 2</li>
-									<li>Example 3</li>
-									<li>Example 4</li>
-									<li>Example 1</li>
-									<li>Example 2</li>
-									<li>Example 3</li>
-									<li>Example 4</li>
-									<li>Example 1</li>
-									<li>Example 2</li>
-									<li>Example 3</li>
-									<li>Example 4</li>
-								</ul>
-							</div>
-							<button class="col-sm-4 col-xs topNavElement d-inline-flex underline-animation">
-								<span>Place Holder(BXH)</span>
-							</button>
-							<button class="col-sm-4 col-xs topNavElement d-inline-flex underline-animation">
-								<span>Place Holder(Artists)</span>
+					<div class=" col-sm-2 col-xs d-inline-flex px-0">
+						<button class="col topNavElement d-inline-flex underline-animation dropdown" id="dropdown1" data-bs-toggle="dropdown">
+							Place Holder(Songs)
+						</button>
+						<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1" style="min-width: 2rem">
+							<li>Example 1</li>
+							<li><a>Example 2</a></li>
+							<li>Example 3</li>
+							<li>Example 4</li>
+							<li><hr></li>
+							<li>Example 1</li>
+							<li>Example 2</li>
+							<li>Example 3</li>
+							<li>Example 4</li>
+							<li>Example 1</li>
+							<li>Example 2</li>
+							<li>Example 3</li>
+							<li>Example 4</li>
+							<li>Example 1</li>
+							<li>Example 2</li>
+							<li>Example 3</li>
+							<li>Example 4</li>
+						</ul>
+					</div>
+					<button class="col-sm-2 col-xs topNavElement d-inline-flex underline-animation">
+						<span>Place Holder(Random)</span>
+					</button>
+					<div class="col-sm-4 d-inline-flex">
+						<input class="searchbox col" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,...">
+						<div class="col-2 d-inline-flex" style="align-items: center;">
+							<button class="topNavElement d-inline-flex topNavSearch mx-1">
+								<i class="fa-solid fa-magnifying-glass"></i>
 							</button>
 						</div>
 					</div>
-					<div class="col-lg-4 col-sm">
-						<div class="row">
-							<div class="col-sm-10 d-inline-flex px-1">
-								<input class="searchbox col w-25" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,...">
-								<div class="col-2 d-inline-flex" style="align-items: center;">
-									<button class="topNavElement d-inline-flex topNavSearch mx-1">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</button>
-								</div>
-							</div>
-							<button class="col-sm-2 topNavElement d-inline-flex LogResB" style="border-radius:20px" id="LogResButton">
-								Sign In
-							</button>
-						</div>
-					</div>
+					<button class="col-sm-2 topNavElement" style="border-radius:20px" id="LogResButton">
+						Sign In
+					</button>
 				</div>
 			</div>
 		</div>
@@ -146,7 +139,7 @@
 				"method": "GET",
 				"timeout": 0,
 				"headers": {
-				  "Authorization": "Bearer BQA_ZUOhEi1jfypj4Asln91MBEk74tl5ID6FUHmNWOhZkebOXk_6H2JJN3Cm7LjVfEHdyT0WC75H97Yt9zLVCL5W-Tied0TodxZcisre4Jm1L9n6Qu_JyWLJU2PAbtk5KZotZ5Eu9ssvmanh1j8hU4T453MdsyzNSfWy7ocLhZl24J_9cY1IDTrNRjKdHkpRCB4"
+				  "Authorization": "Bearer (token)"
 				},
 			  };
 			  
@@ -169,11 +162,13 @@
 		{
 			if(document.documentElement.getAttribute('data-theme') == 'light'){
 				document.documentElement.setAttribute('data-theme', 'dark');
-				$('.slider').css({"-webkit-transform":"translateX(200%) translateX(-3px)","transform":"translateX(200%) translateX(-3px)"});
+				let temp=$('#theme-slider').width()-21;
+				//$('.slider').css({"-webkit-transform":"translateX(200%) translateX(-3px)","transform":"translateX(200%) translateX(-3px)"});
+				$('.slider').animate({left:temp},400);
 			}
 			else{
 				document.documentElement.setAttribute('data-theme', 'light');
-				$('.slider').css({"-webkit-transform":"translateX(0%)","transform":"translateX(0%)"});
+				$('.slider').animate({left:"1px"},400);
 			}
 		});
 	</script>
