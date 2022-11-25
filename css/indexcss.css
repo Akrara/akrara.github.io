@@ -100,7 +100,6 @@ html[data-theme='dark']
 }
 .dropdownmenu
 {
-    min-width:1rem;
     width:inherit;
     display:flex !important;
     opacity: 0;
@@ -125,6 +124,7 @@ html[data-theme='dark']
 }
 .searchbox:focus
 {
+    z-index:3;
     outline:var(--border-color) solid 3px;
     background-color: var(--active-search-color);
 }
@@ -164,7 +164,7 @@ html[data-theme='dark']
     background-color: var(--bg-color);
     align-items: center;
     justify-content: flex-start;
-    min-width:60px;
+    width:80%;
     height:22px;
     border-radius: 34px;
     box-shadow: 0px 1px 1px, 1px 0px 1px, -1px 0px 1px, 0px -1px 1px ;
@@ -184,9 +184,8 @@ html[data-theme='dark']
     top:0;
     left:1px;
     bottom:0;
+    right:0;
     background-color: var(--button-color);
-    -webkit-transition: .4s;
-    transition: .4s;
 }
 .btn:hover
 {
@@ -200,4 +199,8 @@ html[data-theme='dark']
 .dropdown-item:hover
 {
     background-color: var(--hover-color)!important;
+}
+#moon1 path
+{
+    fill:var(--text-color);
 }
