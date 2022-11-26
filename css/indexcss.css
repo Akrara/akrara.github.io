@@ -154,7 +154,7 @@ html[data-theme='dark']
     color: var(--text-color);
     background-color: var(--nav-color);
     min-height: 10vw !important;
-    min-width: 5vw !important;
+    min-width: 10vw !important;
     height:50%;
     width:20%;
     flex-wrap:wrap;
