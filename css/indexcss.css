@@ -100,6 +100,7 @@ html[data-theme='dark']
 }
 .dropdownmenu
 {
+    position:absolute;
     width:inherit;
     display:flex !important;
     opacity: 0;
@@ -152,6 +153,8 @@ html[data-theme='dark']
     border-radius: 10px;
     color: var(--text-color);
     background-color: var(--nav-color);
+    min-height: 10vw !important;
+    min-width: 5vw !important;
     height:50%;
     width:20%;
     flex-wrap:wrap;
