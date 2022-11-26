@@ -28,22 +28,22 @@
 			</div>
 		</div>
 
-		<div class="container-fluid sticky-top overflow-auto" style="max-height:100px;box-shadow: 0px 1px 2px dimgray; background-color:var(--nav-color); transition: background-color 0.4s ease-in-out">
-			<div class="container-xxl topNav sticky-top">
-				<div class="row">
-					<div class=" col-sm-1 d-inline-flex px-0" >
-						<button class="dropdown col topNavElement" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="dropdown0" aria-expanded="false">
-							<div>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="40px" width="40px">
-									<path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7
-									 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
-							</div>
+		<div class="container-fluid sticky-top" style="max-height:100px;box-shadow: 0px 1px 2px dimgray; background-color:var(--nav-color); transition: background-color 0.4s ease-in-out">
+			<div class="container-xxl topNav sticky-top" id="topNav">
+				<div class="row" style="padding:0px 8px">
+					<div class="dropdown col-sm-1 d-inline-flex px-0">
+						<button class="col topNavElement" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="dropdown0" aria-expanded="false">
+							<!-- bars -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="30px" width="30px" style="fill:var(--text-color)" class="transformsvg">
+								<path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7
+									0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>							
 						</button>
 						<ul class="dropdownmenu dropdown-menu" style="padding:0px;min-width: 5rem !important;" id="dropdownmenu0">
 							<li><a class="dropdown-item" href="#">Home</a></li>
 							<li><a class="dropdown-item" href="#">About</a></li>
 							<li><a class="dropdown-item" href="#">Contact</a></li>
 							<li class="row" style="width:100%;padding-top:5px; margin:0px 0px; padding-left:1px; padding-right:1px">
+								<!--moon/dark theme icon-->
 								<svg class="col-3 mx-1 p-0 d-inline-flex" xmlns="http://www.w3.org/2000/svg" id="moon1" data-name="Layer 1" viewBox="0 0 24 24" width="24px" height="24px">
 									<path d="M14,24A12.013,12.013,0,0,1,2,12C1.847,3.044,12.031-2.985,19.791,1.509l1.553.862-1.543.88c-6.7,
 									3.688-6.21,13.87.8,16.906l1.621.731-1.467,1.006A11.921,11.921,0,0,1,14,24Z"/>
@@ -58,8 +58,8 @@
 					<div class="col-sm-1 topNavElement d-inline-flex underline-animation">
 						<span>Place Holder(Icon)</span>
 					</div>
-					<div class=" col-sm-2 col-xs d-inline-flex px-0">
-						<button class="col topNavElement d-inline-flex underline-animation dropdown" id="dropdown1" data-bs-toggle="dropdown">
+					<div class=" col-sm-2 col-xs d-inline-flex px-0 dropdown">
+						<button class="col topNavElement d-inline-flex underline-animation" aria-expanded="false" id="dropdown1" data-bs-toggle="dropdown">
 							Place Holder(Songs)
 						</button>
 						<ul class="dropdown-menu dropdownmenu" id="dropdownmenu1" style="min-width: 2rem">
@@ -89,7 +89,11 @@
 						<input class="searchbox col" type="text" name="" placeholder="Tìm kiếm bài hát, ca sĩ,...">
 						<div class="col-2 d-inline-flex" style="align-items: center;">
 							<button class="topNavElement d-inline-flex topNavSearch mx-1">
-								<i class="fa-solid fa-magnifying-glass"></i>
+								<!-- search icon -->
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20px" width="20px" style="fill:var(--text-color)" class="transformsvg">
+									<!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+									<path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0
+									 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
 							</button>
 						</div>
 					</div>
@@ -112,6 +116,7 @@
 		});
 		$("#dropdown0").on("show.bs.dropdown",function()
 		{
+			$("#dropdownmenu0").css("position","absolute");
 			$("#dropdownmenu0").animate({height:"200px",opacity:"1"},400);
 		});
 		$("#dropdown0").on("hide.bs.dropdown",function()
@@ -167,7 +172,6 @@
 			if(document.documentElement.getAttribute('data-theme') == 'light'){
 				document.documentElement.setAttribute('data-theme', 'dark');
 				let temp=$('#theme-slider').width()-21;
-				//$('.slider').css({"-webkit-transform":"translateX(200%) translateX(-3px)","transform":"translateX(200%) translateX(-3px)"});
 				$('.slider').animate({left:temp},400);
 			}
 			else{
