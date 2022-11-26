@@ -46,6 +46,7 @@ html[data-theme='dark']
     background-color:var(--nav-color);
     justify-content: space-evenly;
     color:var(--text-color);
+    max-height:100px;
 }
 .topNavElement
 {
@@ -100,8 +101,9 @@ html[data-theme='dark']
 }
 .dropdownmenu
 {
-    position:absolute;
-    width:inherit;
+    width:100%;
+    z-index: 5;
+    top: 100%;
     display:flex !important;
     opacity: 0;
     height:0px;
@@ -145,7 +147,7 @@ html[data-theme='dark']
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 5;
+    z-index: 10;
     justify-content: center;
 }
 .signup
@@ -153,8 +155,8 @@ html[data-theme='dark']
     border-radius: 10px;
     color: var(--text-color);
     background-color: var(--nav-color);
-    min-height: 10vw !important;
-    min-width: 10vw !important;
+    max-height: 400px;
+    max-width: 300px;
     height:50%;
     width:20%;
     flex-wrap:wrap;
@@ -206,4 +208,38 @@ html[data-theme='dark']
 #moon1 path
 {
     fill:var(--text-color);
+}
+/* below enables scroll only when top navigation bar elements become single-column */
+@media (max-width:575px) 
+{
+    #topNav
+    {
+        overflow: auto;
+    }
+}
+@media (max-width: 991px)
+{
+    .signup
+    {
+        height:255px !important;
+        width:205px !important;
+    }
+}
+#dropdown0:hover>.transformsvg
+{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transition: transform 0.4s ease-in-out;
+}
+.topNavElement:hover>.transformsvg
+{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transition: transform 0.4s ease-in-out;
 }
