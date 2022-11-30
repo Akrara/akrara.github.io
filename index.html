@@ -8,7 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script><!--this line and the above is for bootstrap and popper-->
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script><!--this line and others above is for bootstrap and popper-->
 		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script> <!--Font awsesome, for ease access to icons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'> <!--Flaticon solid straight pack-->
@@ -72,7 +72,7 @@
 					<div class="col-sm-1 topNavElement d-inline-flex underline-animation">
 						<span>Place Holder(Icon)</span>
 					</div>
-					<div class=" col-sm-2 col-xs d-inline-flex px-0">
+					<div class=" col-sm-2 col-xs d-inline-flex px-0" style="height:50px">
 						<button class="col topNavElement d-inline-flex underline-animation">
 							Place Holder(Browse Categories)
 						</button>
@@ -80,9 +80,9 @@
 					<button class="col-sm-2 col-xs topNavElement d-inline-flex underline-animation" id="Adsearch">
 						<span>Advanced Search</span>
 					</button>
-					<div class="col-sm-4 d-inline-flex">
+					<div class="col-sm-4 d-inline-flex" style="height:50px">
 						<input class="searchbox col" type="text" name="" placeholder="Enter song's name">
-						<div class="col-2 d-inline-flex" style="align-items: center;">
+						<div class="col-2 d-inline-flex" style="align-items: center">
 							<button class="topNavElement d-inline-flex topNavSearch mx-1">
 								<!-- search icon -->
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20px" width="20px" style="fill:var(--text-color)" class="transformsvg">
@@ -98,7 +98,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div class="container-xxl" style="border:2px solid red; height:2000px"></div> <!--Place holder, for future contents-->
 	<!--using jquery, for now-->
 	<script>
@@ -117,10 +116,12 @@
 		{
 			$("#dropdownmenu0").css("z-indent","5");
 			$("#dropdownmenu0").css("display","flex");
+			$('#dropdown0').animate({marginBottom:"+=200px"});
 			$("#dropdownmenu0").animate({height:"200px",opacity:"1"},400);
 		});
 		$("#dropdown0").on("hide.bs.dropdown",function()
 		{
+			$('#dropdown0').animate({marginBottom:"-=200px"});
 			$("#dropdownmenu0").animate({height:"0px",opacity:"0"},400,function()
 			{
 				$("#dropdownmenu0").css("display","none");

@@ -1,4 +1,4 @@
-<!-- Search page-->
+<!-- Music player page-->
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
@@ -8,7 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script><!--this line and others above is for bootstrap and popper-->
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script><!--this line and the above is for bootstrap and popper-->
 		<script src="https://kit.fontawesome.com/cf0c20577d.js" crossorigin="anonymous"></script> <!--Font awsesome, for ease access to icons-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'> <!--Flaticon solid straight pack-->
@@ -82,7 +82,7 @@
 					</button>
 					<div class="col-sm-4 d-inline-flex" style="height:50px">
 						<input class="searchbox col" type="text" name="" placeholder="Enter song's name">
-						<div class="col-2 d-inline-flex" style="align-items: center;">
+						<div class="col-2 d-inline-flex" style="align-items: center">
 							<button class="topNavElement d-inline-flex topNavSearch mx-1">
 								<!-- search icon -->
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20px" width="20px" style="fill:var(--text-color)" class="transformsvg">
@@ -98,96 +98,24 @@
 				</div>
 			</div>
 		</div>
+
 		
-		<div class="container-xxl" style="border:2px solid red;">
-            <div class="row my-2 mx-2 d-flex" style="color:var(--text-color); flex-wrap:wrap; justify-content:center;align-items:center">
-                    <span>Select search target
-                    <select class="col-md-5 col-12">
-                        <option value="track">Songs/Tracks</option>
-                        <option value="artist">Artists</option>
-                    </select>
-					</span>
-					<br>
-					<span class="d-flex my-2" style="justify-content:flex-start;align-items:center;flex-wrap:wrap">
-						<label for="search">Search: </label>
-						<input class="col-md-6 col-12 mx-2 searchbox" type="text" id="search" placeholder="Search">
-						<label for="limit">Max results per page (optional): </label>
-						<input class="col-md-3 col-12 mx-2 searchbox" type="txt" id="limit" placeholder="Maximum search results (can be ignored)">
-					</span>
-					<button class="col-md-7 col-12 btn my-2" id="searchButton" style="background-color:var(--button-color)">Search</button>
-            </div>
-        </div>
-		<div class="container-xxl my-2" style="border:1px solid var(--text-color);color:var(--text-color)">
-			<!-- when using track search -->
-			<div class="row searchres" id="tracksearch" style="background-color:var(--nav-color)">
-				<div class="col-6">
-					<span>Name</span>
-				</div>
-				<div class="col-6">
-					<span>Artist</span>
-				</div>
-			</div>
-			<!-- when using artist search -->
-			<div class="row searchres" id="artistsearch" style="background-color:var(--nav-color)">
-				<div class="col-4">
-					<span>Name</span>
-				</div>
-				<div class="col-4">
-					<span>No. Followers</span>
-				</div>
-				<div class="col-4">
-					<span>Genre(s) performed</span>
-				</div>
-			</div>
-		</div>
-		<!--Place holder, for future contents-->
+		<div class="container-xxl" style="border:2px solid red; height:2000px">
+            <div id="embed-iframe"></div>
+        
+        </div> <!--Place holder, for future contents-->
 	<!--using jquery, for now-->
 	<script>
 		$(document).ready(function(){
 			document.documentElement.setAttribute('data-theme', 'light');
 			if(document.documentElement.getAttribute('data-theme') == 'light')
 			{
-				//
+				
 			}
 		});
-		$('#search').on("keypress",function(e)
-		{
-			if(e.which == 13) //key code for enter key
-			{
-				$(this).attr("disabled",true);
-				//search here
-				console.log("event fired");
-				$(this).attr("disabled",false);
-			}
-		})
-		$('#market').on("keypress",function(e)
-		{
-			if(e.which == 13) //key code for enter key
-			{
-				$(this).attr("disabled",true);
-				//search here
-				console.log("event fired");
-				$(this).attr("disabled",false);
-			}
-		})
-		$('#limit').on("keypress",function(e)
-		{
-			if(e.which == 13) //key code for enter key
-			{
-				$(this).attr("disabled",true);
-				//search here
-				console.log("event fired");
-				$(this).attr("disabled",false);
-			}
-		})
-		$('#searchButton').on("click",function(e)
-		{
-			$(this).attr("disabled",true);
-			//search here
-			console.log("event fired");
-			$(this).attr("disabled",false);
-		});
-        $('#Adsearch').click(function()
+        
+          
+		$('#Adsearch').click(function()
 		{
 			window.location.href="advancedsearch.html";
 		});

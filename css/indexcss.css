@@ -16,16 +16,15 @@ html[data-theme='light']
 {
     --bg-color:white;
     --nav-color:#eeeeee;
-    --list-color:mintcream;
     --text-color:black;
     --hover-color:rgb(0, 150, 255);
     --button-color:rgb(0, 150, 255);
     --button-hover-color:rgb(0, 100, 255);
     --button-text-color:black;
-    --inactive-search-color:rgba(128,128,128,0.5);
-    --active-search-color:rgba(175, 175, 175, 0.2);
+    --inactive-search-color:#808080;
+    --active-search-color:#afafaf;
     --border-color:#1000ea;
-    --slide-bg-color:rgba(0, 0, 0, 0.5);
+    --filter-invert-val:1;
 }
 html[data-theme='dark']
 {
@@ -39,6 +38,7 @@ html[data-theme='dark']
     --inactive-search-color:#243b53;
     --active-search-color:#40667d;
     --border-color:#0000ff;
+    --filter-invert-val:0;
 }
 .topNav
 {
@@ -46,7 +46,7 @@ html[data-theme='dark']
     background-color:var(--nav-color);
     justify-content: space-evenly;
     color:var(--text-color);
-    max-height:100px;
+    max-height:50px;
 }
 .topNavElement
 {
@@ -112,11 +112,12 @@ html[data-theme='dark']
     max-height: 200px;
     overflow-y: auto;
     box-shadow: 0px 1px 2px;
-    background-color: var(--nav-color)!important;
+    background-color: var(--bg-color)!important;
     color:var(--text-color)!important;
 }
 .searchbox
 {
+    height:50px;
     background-color: var(--inactive-search-color);
     color:var(--text-color);
     border-style: solid;
@@ -133,6 +134,7 @@ html[data-theme='dark']
 }
 .topNavSearch
 {
+    position:relative;
     height:45px;
     width:45px;
     border-radius:50%;
@@ -208,7 +210,7 @@ html[data-theme='dark']
 }
 .dropdown-item
 {
-    background-color:var(--nav-color)!important;
+    background-color:var(--bg-color)!important;
     color:var(--text-color)!important;
 }
 .dropdown-item:hover
@@ -224,6 +226,7 @@ html[data-theme='dark']
 {
     #topNav
     {
+        max-height: 100px;
         overflow: auto;
     }
 }
@@ -252,4 +255,33 @@ html[data-theme='dark']
     -o-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transition: transform 0.4s ease-in-out;
+}
+.avtoverlay
+{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    width:120%;
+    height:120%;
+    clip-path:circle(45px at center);
+}
+#change-avt
+{
+    z-index:9;
+    clip-path:circle(50px at center);
+    width:115%;
+    height:115%;
+    position:absolute;
+    opacity:0;
+    transition:opacity 0.4s ease-in-out;
+    cursor:pointer;
+}
+#change-avt:hover
+{
+    opacity:0.9;
+}
+#default-avt
+{
+    filter:invert(var(--filter-invert-val));
 }
