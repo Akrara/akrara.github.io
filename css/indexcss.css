@@ -232,7 +232,12 @@ html[data-theme='dark']
 }
 @media (max-width: 992px)
 {
-    .signup
+    #regoverlay
+    {
+        height:455px !important;
+        width:205px !important;
+    }
+    #signupoverlay
     {
         height:255px !important;
         width:205px !important;
@@ -256,22 +261,13 @@ html[data-theme='dark']
     -ms-transform: scale(1.2);
     transition: transform 0.4s ease-in-out;
 }
-.avtoverlay
-{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:absolute;
-    width:120%;
-    height:120%;
-    clip-path:circle(45px at center);
-}
+
 #change-avt
 {
     z-index:9;
-    clip-path:circle(50px at center);
-    width:115%;
-    height:115%;
+    clip-path:circle(100px at center);
+    width:inherit;
+    height:inherit;
     position:absolute;
     opacity:0;
     transition:opacity 0.4s ease-in-out;
@@ -281,7 +277,11 @@ html[data-theme='dark']
 {
     opacity:0.9;
 }
-#default-avt
+#user-avt
 {
-    filter:invert(var(--filter-invert-val));
+    position: relative;
+    clip-path:circle(95px at center);
+    width:inherit;
+    height:inherit;
+    object-fit: cover;
 }

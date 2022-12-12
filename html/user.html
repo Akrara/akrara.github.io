@@ -29,6 +29,8 @@
 			</div>
 			<div class="signup " id="regoverlay">
 				<h1 style="margin:5px;margin-left:auto;margin-right:auto">Register</h1>
+				<label for="usernamelogin" style="margin-left:10%" class="col-4">Name:</label>
+				<input type="text" placeholder="username" id="namelogin" class="col" style="max-height:30px;margin-left:10%;width:80%;border-radius:5px">
 				<label for="usernamelogin" style="margin-left:10%" class="col-4">Username:</label>
 				<input type="text" placeholder="username" id="usernamelogin" class="col" style="max-height:30px;margin-left:10%;width:80%;border-radius:5px">
 				<label for="passwordlogin" style="margin-left:10%" class="col-4">Password:</label>
@@ -69,20 +71,15 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-sm-1 topNavElement d-inline-flex underline-animation">
-						<span>Place Holder(Icon)</span>
-					</div>
-					<div class=" col-sm-2 col-xs d-inline-flex px-0" style="height:50px">
-						<button class="col topNavElement d-inline-flex underline-animation">
-							Place Holder(Browse Categories)
-						</button>
+					<div class="col-sm-1 d-inline-flex" style="justify-items:center;justify-content:center">
+						<img src="Mesic.png" alt="Mesic logo" style="width:50px; height:50px">
 					</div>
 					<button class="col-sm-2 col-xs topNavElement d-inline-flex underline-animation" id="Adsearch">
 						<span>Advanced Search</span>
 					</button>
 					<div class="col-sm-4 d-inline-flex" style="height:50px">
 						<input class="searchbox col" type="text" name="" placeholder="Enter song's name">
-						<div class="col-2 d-inline-flex" style="align-items: center;">
+						<div class="col-2 d-inline-flex" style="align-items: center">
 							<button class="topNavElement d-inline-flex topNavSearch mx-1">
 								<!-- search icon -->
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20px" width="20px" style="fill:var(--text-color)" class="transformsvg">
@@ -100,24 +97,21 @@
 		</div>
 		
 		<div class="container-xxl" style="font-size:30px;font-family:sans-serif;border:2px solid red; height:1000px;transition: all 0.4s ease-in-out">
-            <div class="row d-flex" style="border-radius:15px;background-color:var(--nav-color);height:150px;padding-bottom:50px;justify-content:flex-start; align-items:center">
-                <div class="col-4 mx-2 my-2 d-inline-flex p-0" style="position:relative;height:100%;width:100px;border:5px solid var(--active-search-color);border-radius:50%; transition:border-color 0.4s ease-in-out;justify-content:center; align-items:center">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="clip-path:circle(45px at center);fill:var(--text-color);transition:fill 0.4s ease-in-out">
-                       
-                        <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7
-                         512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg> -->
+            
+			<div class="row d-flex" style="border-radius:15px;background-color:var(--nav-color);padding-bottom:50px;justify-content:flex-start; align-items:center">
+                <!-- User Avatar -->
+				<div class="col-4 mx-2 my-2 d-inline-flex p-0" style="height:200px;width:200px;border:5px solid var(--active-search-color);border-radius:50%; transition:border-color 0.4s ease-in-out;justify-content:center; align-items:center">
 					<img src="change_avt.png" alt="change user avatar" id="change-avt">
-					<img src="default_avt.png" alt="User Avatar" style="clip-path:circle(45px at center);width:100%;height:100%" id="default-avt">
-					<!-- <div class="overlay avtoverlay">
-						<img src="change_avt.png" alt="change user avatar" id="change-avt">
-					</div> -->
-
+					<img src="default_avt.png" alt="User Avatar" id="user-avt">
+					<input type="file" accept="image/*" onchange="preview()" style="position: absolute;width:10%;height:10%;opacity:0" id="change-avt-button">
                 </div>
+				<!-- User Name -->
                 <div class="col-8 mx-2 my-2 d-inline-flex inputSwitch" style="color:var(--text-color); align-items:center">
                     <span id="username"></span><input value="John Doe">
 					<img src="edit.png" style="margin:0px 15px;filter:invert(var(--filter-invert-val));height:25px;width:25px;cursor:pointer" id="edit-name">
                 </div>
             </div>
+			<!-- edit avatar -->
 			<div class="row d-flex" style="background-color:var(--bg-color);color:var(--text-color);border-radius:15px;border:1px solid green">
 				<div class="dropdown">
 					<button class="col-12 topNavElement" style="margin:0px" id="dropdown2" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -147,6 +141,14 @@
         </div> <!--Place holder, for future contents-->
 	<!--using jquery, for now-->
 	<script>
+		function preview()
+		{
+			urla=URL.createObjectURL(event.target.files[0]);
+			// save to database here
+			// and call image up from database to display as image, not as blob object
+			//below is just for testing
+			document.getElementById('user-avt').src=urla;
+		};
 		$(document).ready(function(){
 			document.documentElement.setAttribute('data-theme', 'light');
 			if(document.documentElement.getAttribute('data-theme') == 'light')
@@ -192,6 +194,10 @@
 		$('#Adsearch').click(function()
 		{
 			window.location.href="advancedSearch.html";
+		});
+		$('#change-avt').click(function()
+		{
+			$('#change-avt-button').click();
 		});
 		$("#dropdown0").on("show.bs.dropdown",function()
 		{
