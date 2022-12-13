@@ -157,6 +157,7 @@
 				{
 					
 				}
+				localStorage.setItem('data','testing');
 			});
 			
 			
@@ -278,6 +279,7 @@
 			$(this).css('animation-play-state','paused');
 		})
 		//get song from database
+
 		const music_list= [
 		{
 			img:'Take Over.jpg',
@@ -292,6 +294,25 @@
 			src:'Last Surprise.mp3'
 		}
 		];
+		const json_temp =$.getJSON('../songs.json',function(data)		
+		{
+			const json_file=json_temp.responseJSON;
+			console.log("data");
+			console.log(json_file);
+			for (let i in json_file)
+			{
+				temp_json={
+					img:json_file[i].image,
+					name:json_file[i].name,
+					artist:json_file[i].singer,
+					src:json_file[i].path
+				}
+				music_list.push(temp_json);
+			}
+			console.log("done");
+			console.log(music_list);
+		});
+		
 		loadtrack(track_index);
 		function loadtrack(track_index)
 		{
@@ -445,15 +466,7 @@
 			}
 			loadtrack(track_index);
 			playTrack();
-			if(track_queue.length<20)
-			{
-				track_queue.push(track_index);
-			}
-			else
-			{
-				track_queue.shift();
-				track_queue.push(track_index);
-			}
+			
 		}
 		function previous()
 		{
@@ -467,8 +480,10 @@
 			}
 			loadtrack(track_index);
 			playTrack();*/
-			if(track_queue.length>0)
+			console.log(track_queue.length);
+			if(track_queue.length>1)
 			{
+				track_queue.pop()
 				track_index=track_queue.pop();
 				loadtrack(track_index);
 				playTrack();
