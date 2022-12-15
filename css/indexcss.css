@@ -21,8 +21,8 @@ html[data-theme='light']
     --button-color:rgb(0, 150, 255);
     --button-hover-color:rgb(0, 100, 255);
     --button-text-color:black;
-    --inactive-search-color:#808080;
-    --active-search-color:#afafaf;
+    --inactive-search-color:#bcbcbc;
+    --active-search-color:#bcbcbc;
     --border-color:#1000ea;
     --filter-invert-val:1;
 }

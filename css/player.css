@@ -15,14 +15,14 @@ html
 html[data-theme='light']
 {
     --bg-color:white;
-    --nav-color:#eeeeee;
+    --nav-color:#ffffff;
     --text-color:black;
     --hover-color:rgb(0, 150, 255);
     --button-color:rgb(0, 150, 255);
     --button-hover-color:rgb(0, 100, 255);
     --button-text-color:black;
-    --inactive-search-color:#808080;
-    --active-search-color:#afafaf;
+    --inactive-search-color:#bcbcbc;
+    --active-search-color:#bcbcbc;
     --border-color:#1000ea;
     --filter-invert-val:1;
     --button-invert-val:0;
