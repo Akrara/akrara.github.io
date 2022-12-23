@@ -155,7 +155,7 @@
 				};
 				
 				fetch("https://api.imgur.com/3/upload", requestOptions)
-				  .then(result => result.json()
+				  .then(result => result.json())
 				  .then(data=>{
 					console.log(data);
 					$('#user-avt').attr('src',data.data.link)
