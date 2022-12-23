@@ -155,9 +155,10 @@
 				};
 				
 				fetch("https://api.imgur.com/3/upload", requestOptions)
-				  .then(result => {
-					console.log(result);
-					$('#user-avt').attr('src',result.data.link)
+				  .then(result => result.json()
+				  .then(data=>{
+					console.log(data);
+					$('#user-avt').attr('src',data.data.link)
 				  })
 				  .catch(error => console.log('error', error));
 			}
